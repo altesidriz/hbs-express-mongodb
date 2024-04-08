@@ -15,3 +15,4 @@ Projects with Express.js MongoDB and Handlebars
         - configure view engine
         - add main layout
         - fix paths to img and static css files in template
+6. Convert all html to hbs and fix view 
