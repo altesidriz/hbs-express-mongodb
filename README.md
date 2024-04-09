@@ -15,4 +15,16 @@ Projects with Express.js MongoDB and Handlebars
         - configure view engine
         - add main layout
         - fix paths to img and static css files in template
-6. Convert all html to hbs and fix view 
+6. Convert all html to hbs and fix view
+7. Add database
+        - install mongoose
+        - connect to db
+8. Users functionality
+        - user controler
+        - add controler to route
+        - fix navigation in the navbar (login, reg, logout)
+        - render login page
+        - render register page
+9. Add user model
+        - simple validation in Schema
+        - add method for register
