@@ -43,3 +43,5 @@ Projects with Express.js MongoDB and Handlebars
         - cookie-parser
         - configure cookie parser
         - set cookie with token
+13. Implement logout func
+14. Authentication middleware
