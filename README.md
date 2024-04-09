@@ -45,3 +45,17 @@ Projects with Express.js MongoDB and Handlebars
         - set cookie with token
 13. Implement logout func
 14. Authentication middleware
+        - create middleware dir
+        - add auth middlware below cookieParser
+        - handle invalid token
+        - provide authorization
+15. Dynamic navigation
+        - conditional options in nav
+        - add data to res.locals for template
+16. Error handling
+        - add 404 page
+        - redirect missing not matching route to 404
+        - add global error handler (OPTIONAL)
+        - error messsage util
+17. Show error notification
+        - 

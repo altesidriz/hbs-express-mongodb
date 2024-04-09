@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const userService = require("../services/userService.js")
+const userService = require("../services/userService.js");
+const { extractErrMessages } = require('../utils/errorHandler.js');
 
 //Registration
 router.get('/register', (req, res) => {
@@ -8,16 +9,22 @@ router.get('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
     const { firstName, lastName, email, password, repeatPassword } = req.body;
+    try {
+        
+        await userService.register({
+            firstName,
+            lastName,
+            email,
+            password,
+            repeatPassword
+        });
 
-    await userService.register({
-        firstName,
-        lastName,
-        email,
-        password,
-        repeatPassword
-    })
+        res.redirect('/users/login');
+    } catch (error) {
+        const errorMessages = extractErrMessages(error);
+        res.status(404).render("user/register", { errorMessages });
+    }
 
-    res.redirect('/users/login');
 });
 
 
@@ -29,10 +36,16 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
-    const token = await userService.login(email, password);
-    console.log({ token });
-    res.cookie('token', token, { httpOnly: true })
-    res.redirect('/')
+    try {
+        const token = await userService.login(email, password);
+        res.cookie('token', token, { httpOnly: true })
+        res.redirect('/');
+
+    } catch (error) {
+        const errorMessages = extractErrMessages(error);
+        console.log({errorMessages});
+        res.status(404).render("user/login", { errorMessages });
+    }
 });
 
 
