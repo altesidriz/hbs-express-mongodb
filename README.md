@@ -28,3 +28,18 @@ Projects with Express.js MongoDB and Handlebars
 9. Add user model
         - simple validation in Schema
         - add method for register
+        - create User record
+        - validate repeat password
+        - validate email already exists
+        - pass hashingg
+10. Login
+        - find user by email
+        - validate pass with hashed pass
+11. JsonWebToken
+        - promisify jwt
+        - generate secret
+        - generate token at login
+12. Return token in cookie
+        - cookie-parser
+        - configure cookie parser
+        - set cookie with token
